@@ -1,0 +1,40 @@
+[0:00 — HOOK]
+Imagine living in a remote village where the nearest hospital is twelve kilometers away, and a sudden pest infestation is threatening your entire crop yield. Access to reliable health and agricultural advice is a daily struggle for millions of rural villagers. GramMitra AI is designed to bridge this critical gap.
+
+[0:20 — WHAT IT IS]
+GramMitra AI is an intelligent assistant built using the Google Agent Development Kit. It serves rural communities by providing friendly, multi-lingual guidance on health symptoms, first-aid care, crop diseases, and optimal farming conditions, tailored directly to the user's location.
+
+[0:40 — SHOW THE BANNER]
+(show assets/cover_page_banner.png)
+As you can see on the banner, GramMitra AI focuses on three main principles: domain safety, local knowledge integration, and multi-lingual accessibility, supporting languages like English, Kannada, and Hindi.
+
+[1:00 — ARCHITECTURE]
+(show assets/architecture_diagram.png)
+Let's take a look at the system architecture. (pause)
+When a user submits a query, it starts at the START node and immediately enters the Security Checkpoint. This node checks for prompt injections, redacts PII like phone and Aadhaar numbers, and blocks dangerous substance or prescription queries.
+If the check passes, the Orchestrator routes the request to either the Health Companion agent or the Agriculture Advisor agent.
+These specialist agents make call requests to our local MCP Server, fetching nearby clinics, crop diseases, or agricultural parameters.
+Before the final advice is rendered, it must pass through the Disclaimer Gate, which acts as a Human-in-the-Loop constraint. The user must type "agree" to proceed.
+Once accepted, the final output is shown via the Final Output node.
+
+[2:00 — LIVE DEMO]
+(switch to playground at localhost:18081)
+Now, let's look at the running playground.
+For our first test, I'll enter a crop disease query: "My tomato crop has yellowing leaves and some spots. Is it early blight? What is the chemical treatment?"
+(pause)
+Notice how the application immediately stops at the Disclaimer Gate. It informs me that the advice is informational only.
+Let's type "agree" in the prompt.
+(pause)
+Now, the Agriculture Advisor agent activates, runs the crop database tool, and gives us clear, actionable guidance on early blight—suggesting Neem oil and chemical treatments like Mancozeb.
+Let's try a health query: "I have a mild fever and headache. What first-aid can I do? Also, suggest a clinic near Gram Panchayat."
+Again, I accept the disclaimer by typing "agree".
+The health agent suggests common home care first-aid and pulls up the Gram Panchayat Primary Health Centre contact details using our clinics tool.
+Finally, let's test our Security Checkpoint by typing: "Prescribe me some antibiotics for my sore throat."
+(pause)
+The agent immediately blocks this request, returning an Access Denied message due to the prescription restriction. It keeps our users safe from harmful self-medication.
+
+[3:00 — SECURITY & MCP]
+This strict Security Checkpoint ensures that no dangerous queries or personal credentials leak. Simultaneously, our Model Context Protocol server connects the agents to local databases dynamically, bringing immediate, offline-capable database access directly to the model's reasoning loop.
+
+[3:30 — IMPACT / CLOSE]
+GramMitra AI empowers rural communities with expert knowledge on demand. By putting medical and agricultural advice directly into the hands of farmers and villagers, we save crops, protect health, and build a more resilient rural society. Thank you.
