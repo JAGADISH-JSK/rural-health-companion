@@ -140,7 +140,7 @@ graph TD
 
 2. In your terminal, navigate into your project folder:
    ```bash
-   cd rural-health-companion
+   cd grammitra-ai
    git init
    git add .
    git commit -m "Initial commit: rural-health-companion ADK agent"
