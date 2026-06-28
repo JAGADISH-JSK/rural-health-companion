@@ -17,8 +17,8 @@ Before running the application, make sure you have:
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repo-url>
-   cd grammitra-ai
+   git clone https://github.com/JAGADISH-JSK/rural-health-companion.git
+   cd rural-health-companion
    ```
 
 2. **Configure Environment Variables**:
@@ -134,18 +134,18 @@ graph TD
 ## Push to GitHub
 
 1. Create a new repo at https://github.com/new
-   - Name: `grammitra-ai`
+   - Name: `rural-health-companion`
    - Visibility: Public or Private
    - Do NOT initialize with README (you already have one)
 
 2. In your terminal, navigate into your project folder:
    ```bash
-   cd grammitra-ai
+   cd rural-health-companion
    git init
    git add .
-   git commit -m "Initial commit: grammitra-ai ADK agent"
+   git commit -m "Initial commit: rural-health-companion ADK agent"
    git branch -M main
-   git remote add origin https://github.com/<your-username>/grammitra-ai.git
+   git remote add origin https://github.com/JAGADISH-JSK/rural-health-companion.git
    git push -u origin main
    ```
 
